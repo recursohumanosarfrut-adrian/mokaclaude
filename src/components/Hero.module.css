@@ -1,0 +1,169 @@
+.hero {
+  padding-top: clamp(40px, 7vw, 96px);
+  padding-bottom: clamp(56px, 8vw, 112px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+
+.title {
+  font-size: clamp(46px, 5.6vw, 80px);
+  line-height: 0.98;
+  letter-spacing: -0.028em;
+  font-weight: 380;
+  font-variation-settings: "opsz" 72;
+  text-wrap: balance;
+}
+
+.lead {
+  margin-top: 28px;
+  max-width: 34ch;
+  font-size: clamp(18px, 1.6vw, 20px);
+  color: var(--ink-2);
+}
+
+.ctas {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.facts {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.facts svg {
+  color: var(--azul);
+}
+
+/* Escenario: la fila de bebidas del menú */
+.stage {
+  position: relative;
+  border-radius: var(--r-l);
+  background: var(--latte);
+  padding: clamp(40px, 5vw, 64px) clamp(20px, 3vw, 40px) 168px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lineup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(10px, 1.6vw, 20px);
+}
+.drink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.drink > span {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(59, 43, 31, 0.78);
+  text-align: center;
+  max-width: 9ch;
+  line-height: 1.2;
+  min-height: 2.4em;
+}
+/* alturas distintas, como vasos reales */
+.lineup :global(figure) > div { --w: clamp(52px, 5vw, 72px); --h: 128px; }
+.drink:nth-child(1) :global(figure) > div { --h: 100px; }
+.drink:nth-child(3) :global(figure) > div,
+.drink:nth-child(4) :global(figure) > div { --h: 152px; }
+
+.card {
+  position: absolute;
+  left: clamp(16px, 2.4vw, 28px);
+  right: auto;
+  bottom: clamp(16px, 2.4vw, 28px);
+  min-width: 240px;
+  padding: 18px 20px;
+  border-radius: var(--r-m);
+  background: var(--blanco);
+  box-shadow: var(--shadow);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 600;
+  font-size: 15.5px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-3);
+}
+.status[data-open="true"] .dot {
+  background: var(--azul);
+  box-shadow: 0 0 0 4px rgba(91, 127, 166, 0.18);
+}
+.statusDetail {
+  margin-top: 2px;
+  padding-left: 17px;
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+.from {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+.from strong {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 21px;
+  color: var(--ink);
+  margin-left: 4px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .stage {
+    min-height: 0;
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ctas :global(.btn) {
+    flex: 1 1 100%;
+  }
+  .lineup :global(figure) > div {
+    --w: 72px;
+  }
+  .lineup .drink:nth-child(n + 4) {
+    display: none;
+  }
+  .card {
+    right: 16px;
+    min-width: 0;
+  }
+}

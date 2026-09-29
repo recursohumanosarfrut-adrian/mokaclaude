@@ -1,0 +1,70 @@
+.steps {
+  list-style: none;
+  margin: clamp(40px, 5vw, 64px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  counter-reset: none;
+}
+
+.step {
+  position: relative;
+  padding-top: 28px;
+  border-top: 1.5px solid var(--espresso);
+}
+
+.num {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(64px, 7vw, 96px);
+  line-height: 0.9;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: var(--caramelo);
+  font-variant-numeric: lining-nums;
+  font-variation-settings: "opsz" 72;
+}
+
+.title {
+  margin-top: 24px;
+  font-size: 26px;
+  font-weight: 450;
+}
+
+.text {
+  margin-top: 10px;
+  max-width: 30ch;
+  color: var(--ink-2);
+}
+
+.cta {
+  margin-top: clamp(40px, 5vw, 56px);
+}
+
+@media (max-width: 760px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    column-gap: 16px;
+    padding-top: 20px;
+  }
+  .num {
+    grid-row: span 2;
+    font-size: 56px;
+  }
+  .title {
+    margin-top: 0;
+    font-size: 23px;
+  }
+  .text {
+    margin-top: 6px;
+  }
+  .cta :global(.btn) {
+    width: 100%;
+  }
+}

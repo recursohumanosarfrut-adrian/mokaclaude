@@ -1,0 +1,85 @@
+.wrap {
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.glass {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--w);
+  height: var(--h);
+  border-radius: 6px 6px calc(var(--w) * 0.22) calc(var(--w) * 0.22);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1.5px rgba(59, 43, 31, 0.55), 0 18px 30px -22px rgba(59, 43, 31, 0.6);
+  background: rgba(255, 251, 245, 0.5);
+  /* reflejo del vidrio */
+}
+.glass::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  bottom: 14%;
+  left: 12%;
+  width: 7%;
+  border-radius: 99px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.08));
+}
+.glass::before {
+  /* borde superior del vaso (espacio vacío) */
+  content: "";
+  flex: 0 0 9%;
+}
+
+.layer {
+  display: block;
+  flex-basis: 0;
+  min-height: 3px;
+}
+.layer + .layer {
+  box-shadow: inset 0 1px 0 rgba(59, 43, 31, 0.08);
+}
+
+.labels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: var(--h);
+  padding-top: calc(var(--h) * 0.09);
+  font-size: 13px;
+  line-height: 1.1;
+  color: var(--ink-2);
+}
+.labels li {
+  flex-basis: 0;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 18px;
+}
+.labels li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 12px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.sm {
+  --w: 64px;
+  --h: 88px;
+}
+.md {
+  --w: 92px;
+  --h: 128px;
+}
+.lg {
+  --w: 132px;
+  --h: 184px;
+}

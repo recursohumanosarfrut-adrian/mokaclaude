@@ -1,0 +1,117 @@
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 24px 48px;
+  align-items: end;
+}
+.head :global(.section-lead) {
+  margin-top: 0;
+}
+
+.grid {
+  list-style: none;
+  margin: clamp(36px, 4vw, 56px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--r-l);
+  background: var(--blanco);
+  box-shadow: inset 0 0 0 1px var(--line);
+  overflow: hidden;
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.live:hover {
+  box-shadow: inset 0 0 0 1px var(--line-strong), var(--shadow);
+  transform: translateY(-2px);
+}
+
+/* Área neutra con espacio de seguridad para el logo oficial */
+.logoBox {
+  height: 140px;
+  display: grid;
+  place-items: center;
+  padding: 32px 40px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  max-height: 44px;
+  max-width: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.logoFallback {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 22px;
+}
+.name {
+  font-weight: 600;
+}
+.soon {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  padding: 4px 11px;
+  border-radius: var(--r-pill);
+  background: var(--crema-2);
+}
+.link {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--azul);
+}
+
+@media (max-width: 860px) {
+  .head {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .logoBox {
+    width: 132px;
+    height: auto;
+    min-height: 84px;
+    padding: 18px;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+  .logo {
+    max-height: 30px;
+    max-width: 100%;
+  }
+  .logoFallback {
+    font-size: 17px;
+  }
+  .meta {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+  }
+}
